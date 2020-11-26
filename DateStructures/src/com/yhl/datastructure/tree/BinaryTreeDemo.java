@@ -60,7 +60,9 @@ public class BinaryTreeDemo {
         } else {
             System.out.println("未找到该英雄！");
         }
-
+        System.out.println("删除节点为5的节点:");
+        tree.deleteNode(5);
+        tree.middleOrderPrint();
 
     }
 }
@@ -122,6 +124,18 @@ class BinaryTree {
             return root.firstOrderFind(val);
         }
         return null;
+    }
+
+    public void deleteNode(int val) {
+        if (this.root != null) {
+            if (this.root.getNo() == val) {
+                root = null;
+            } else {
+                root.deleteNode(val);
+            }
+        } else {
+            System.out.println("二叉树为空！");
+        }
     }
 }
 
@@ -283,5 +297,29 @@ class HeroNode {
             return this;
         }
         return resultNode;
+    }
+
+    // 删除节点
+    public void deleteNode(int val) {
+        // 当前节点左子节点不为空且是要删除的节点
+        if (this.left != null && this.left.no == val) {
+            this.left = null;
+            return;
+        }
+
+        // 右子节点不为空且为删除节点
+        if (this.right != null && this.right.no == val) {
+            this.right = null;
+            return;
+        }
+        // 左递归删除
+        if (this.left != null) {
+            this.left.deleteNode(val);
+        }
+        // 右递归删除
+        if (this.right != null) {
+            this.right.deleteNode(val);
+        }
+
     }
 }
