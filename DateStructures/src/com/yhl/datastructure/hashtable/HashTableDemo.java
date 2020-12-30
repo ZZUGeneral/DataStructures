@@ -1,8 +1,5 @@
 package com.yhl.datastructure.hashtable;
 
-import com.yhl.recursion.Test;
-
-import java.beans.beancontext.BeanContext;
 import java.util.Scanner;
 
 /**
